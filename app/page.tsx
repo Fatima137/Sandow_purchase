@@ -1,105 +1,145 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Phone, Menu, Search } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Phone, Menu, Search, Shield, Eye, Clock } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      {/* Header (With Black Bottom Border) */}
-      <header className="container mx-auto px-4 py-6 flex justify-between items-center border-b-2 border-black">
-        <div className="flex items-center">
-          <Link href="/">
-            <div className="flex flex-col">
-              <span className="text-3xl font-bold text-gray-900">SANDOW</span>
-              <span className="text-xs tracking-widest text-gray-600">CONVEYANCING</span>
-            </div>
-          </Link>
-        </div>
+    <div className="min-h-screen flex flex-col bg-white text-black">
+      {/* Header */}
+      <header className="w-full flex justify-between items-center px-6 py-4 border-b-2 border-black">
+        <Link href="/" className="flex flex-col">
+          <span className="text-3xl font-bold tracking-tight">SANDOW</span>
+          <span className="text-xs tracking-widest text-gray-600">CONVEYANCING</span>
+        </Link>
 
         <div className="flex items-center gap-4">
           <Link
             href="tel:1800BUYSELL"
-            className="hidden md:flex items-center gap-2 bg-yellow-400 px-6 py-3 font-bold text-black border-2 border-black"
+            className="hidden md:flex items-center gap-2 bg-yellow-400 px-5 py-2 font-semibold text-black border-2 border-black hover:bg-yellow-500 transition"
           >
             <Phone size={16} />
             1800 BUY SELL
           </Link>
-          <button className="p-2 border-2 border-black">
-            <Menu size={24} className="text-gray-700" />
+          <button className="p-2 border-2 border-black hover:bg-gray-100">
+            <Menu size={24} />
           </button>
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="flex-grow">
-        {/* Hero Section (Overlapping Image + Blue Background) */}
-        <section className="container mx-auto px-4 grid md:grid-cols-2 gap-8 py-12">
-          <div className="flex flex-col justify-center space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight border-b-2 border-black pb-4">
-              Stress-Free Conveyancing for Every Property Buyer
-            </h1>
-
-            <p className="text-gray-600 text-lg border-b-2 border-black pb-6">
-              From search to settlement and beyond, our skilled professionals ensure investors enjoy a smoother journey to property investment success.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link
-                href="https://form.jotform.com/251135998927068"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-yellow-400 text-black font-bold py-3 px-6 text-center border-2 border-black hover:bg-yellow-500 transition-colors"
-              >
-                Get Started Today
-              </Link>
-              <Link 
-                href="#" 
-                className="bg-gray-100 text-gray-700 font-bold py-3 px-6 text-center border-2 border-black hover:bg-gray-200 transition-colors"
-              >
-                Download Our Guide
-              </Link>
-            </div>
+      {/* Hero Section */}
+      <section className="relative bg-blue-600 text-white flex flex-col justify-center items-center text-center py-32 px-6 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+            alt="Hero Background"
+            layout="fill"
+            objectFit="cover"
+            className="opacity-40"
+          />
+        </div>
+        <div className="relative z-10">
+          <h1 className="text-5xl font-extrabold mb-6 leading-tight">
+            Stress-Free Conveyancing
+          </h1>
+          <p className="text-lg mb-8 max-w-2xl">
+            Smooth property buying experience with trusted professionals by your side.
+          </p>
+          <div className="flex gap-4 flex-wrap justify-center">
+            <Link
+              href="https://form.jotform.com/251135998927068"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-yellow-400 text-black font-bold py-3 px-6 border-2 border-black hover:bg-yellow-500 transition"
+            >
+              Get Started
+            </Link>
+            <Link
+              href="#"
+              className="bg-white text-black font-bold py-3 px-6 border-2 border-black hover:bg-gray-100 transition"
+            >
+              Learn More
+            </Link>
           </div>
+        </div>
+      </section>
 
-          {/* Right Side (Blue Background + Overlapping Image) */}
-          <div className="relative h-[400px] md:h-[500px]">
-            <div className="absolute inset-0 bg-blue-600 -right-4 md:-right-12 border-2 border-black"></div>
-            <div className="absolute inset-0 -right-8 -bottom-8 border-2 border-black">
-              {/* Replace with actual image */}
-              <div className="w-full h-full bg-gray-200 flex items-center justify-center border-2 border-black">
-                <span className="text-gray-500">Property Image</span>
-              </div>
-            </div>
-          </div>
-        </section>
+      {/* Search Section */}
+      <section className="py-12 px-6">
+        <div className="max-w-xl mx-auto relative">
+          <input
+            type="text"
+            placeholder="Search properties..."
+            className="w-full py-4 pl-6 pr-16 border-b-2 border-black focus:outline-none text-lg"
+          />
+          <button className="absolute top-1/2 right-4 transform -translate-y-1/2 text-gray-600">
+            <Search size={24} />
+          </button>
+        </div>
+      </section>
 
-        {/* Search Bar (Black Underline) */}
-        <section className="container mx-auto px-4 py-8 border-b-2 border-black">
-          <div className="relative max-w-xl mx-auto">
-            <input
-              type="text"
-              placeholder="Search"
-              className="w-full py-3 px-4 border-b-2 border-black focus:outline-none"
+      {/* Feature Section */}
+      <section className="container mx-auto grid md:grid-cols-2 gap-6 px-6 py-12">
+        {/* Why Choose Us */}
+        <div className="flex flex-col p-8 bg-white border-2 border-black space-y-6">
+          <div className="w-full h-64 relative border-2 border-black">
+            <Image
+              src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+              alt="Why Choose Us"
+              layout="fill"
+              objectFit="cover"
             />
-            <button className="absolute right-0 top-0 h-full px-4">
-              <Search className="text-gray-500" />
-            </button>
           </div>
-        </section>
+          <h2 className="text-3xl font-bold">Why Choose Us</h2>
+          <p className="text-gray-700">
+            We provide unparalleled expertise, personalized service, and a stress-free process tailored to your needs.
+          </p>
+        </div>
 
-        {/* 3-Column Grid (With Black Borders) */}
-        <section className="grid grid-cols-1 md:grid-cols-3 border-b-2 border-black">
-          <div className="bg-gray-900 h-64 border-r-2 border-black"></div>
-          <div className="bg-blue-100 h-64 border-r-2 border-black"></div>
-          <div className="bg-blue-600 h-64"></div>
-        </section>
+        {/* How It Works */}
+        <div className="flex flex-col p-8 bg-blue-100 border-2 border-black space-y-6">
+          <div className="w-full h-64 relative border-2 border-black">
+            <Image
+              src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"
+              alt="How It Works"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+          <h2 className="text-3xl font-bold">How It Works</h2>
+          <p className="text-gray-700">
+            From consultation to settlement, we guide you every step of the way for a seamless property transaction.
+          </p>
+        </div>
+      </section>
 
-        {/* 2-Column Grid (With Black Borders) */}
-        <section className="grid grid-cols-1 md:grid-cols-2">
-          <div className="bg-gray-200 h-96 border-r-2 border-black"></div>
-          <div className="bg-blue-100 h-96"></div>
-        </section>
-      </main>
+      {/* Info Cards */}
+      <section className="container mx-auto grid md:grid-cols-3 gap-6 px-6 py-12">
+        {/* Secure */}
+        <div className="flex flex-col justify-center items-center text-center p-8 bg-gray-200 border-2 border-black">
+          <Shield size={40} className="mb-4 text-blue-600" />
+          <h3 className="text-xl font-bold mb-2">Secure</h3>
+          <p className="text-gray-600">Your information and transactions are fully protected.</p>
+        </div>
+
+        {/* Transparent */}
+        <div className="flex flex-col justify-center items-center text-center p-8 bg-blue-100 border-2 border-black">
+          <Eye size={40} className="mb-4 text-blue-600" />
+          <h3 className="text-xl font-bold mb-2">Transparent</h3>
+          <p className="text-gray-600">Full visibility and open communication at every stage.</p>
+        </div>
+
+        {/* Fast */}
+        <div className="flex flex-col justify-center items-center text-center p-8 bg-blue-600 text-white border-2 border-black">
+          <Clock size={40} className="mb-4" />
+          <h3 className="text-xl font-bold mb-2">Fast</h3>
+          <p>We work quickly and efficiently to save your time and effort.</p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full text-center py-6 border-t-2 border-black text-gray-600 text-sm">
+        © 2025 Sandow Conveyancing. All rights reserved.
+      </footer>
     </div>
-  )
+  );
 }
