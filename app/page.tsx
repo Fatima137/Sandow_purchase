@@ -46,7 +46,7 @@ export default function Home() {
           </p>
           <div className="flex gap-4 flex-wrap justify-center">
             <Link
-              href="https://form.jotform.com/251135998927068"
+              href="https://form.jotform.com/251321474357455"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-yellow-400 text-black font-bold py-3 px-6 border-2 border-black hover:bg-yellow-500 transition"
